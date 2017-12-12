@@ -13,42 +13,62 @@
         <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav navbar-nav">
+                @if(session('login'))
+                    @if(session('rol') == "ADMINISTRATIVO")
+                        <li><a href="#">ADMINISTRATIVO</a></li>
+                    @endif
+                    @if(session('rol') == "PROFESOR")
+                        <li><a href="#">PROFESOR</a></li>
+                    @endif
+                    @if(session('rol') == "ADMIN")
+                        <li><a href="{{ url("portal/datosportal") }}">Inicio</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Persona <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url("persona/administrativo") }}">Administrativo</a></li>
+                                <li><a href="{{ url("persona/docente") }}">Docente</a></li>
+                                <li><a href="{{ url("persona/curriculum") }}">Curriculum</a></li>
+                                <li><a href="{{ url("persona/persona") }}">Alumno</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Persona <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url("portal/normas") }}">Normas</a></li>
+                                <li><a href="{{ url("portal/reglamento") }}">Reglamento</a></li>
+                                <li><a href="{{ url("portal/logros") }}">Logros</a></li>
+                                <li><a href="{{ url("portal/noticias") }}">Noticias</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Persona <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url("planestudio/planestudio") }}">Plan de Estudio</a></li>
+                                <li><a href="{{ url("planestudio/materias") }}">Materias</a></li>
+                            </ul>
+                        </li>
+
+                    @endif
+                @endif
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tema <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Tema <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" id="tema1">Tema 1</a></li>
                         <li><a href="#" id="tema2">Tema 2</a></li>
                         <li><a href="#" id="tema3">Tema 3</a></li>
                     </ul>
                 </li>
-                @if(session('login'))
-                    @if(session('rol') == "ALUMNO")
-                        <li><a href="{{ url("alumno") }}/{{session('rol_id')}}">Alumno</a></li>
-                        <li><a href="{{ url("inscripcion") }}">Inscripcion</a></li>
-                        <li><a href="{{ url("kardex") }}">Kardex</a></li>
-                        <li><a href="{{ url("reporte") }}">Reporte</a></li>
-                    @endif
-                    @if(session('rol') == "PROFESOR")
-                        <li><a href="{{ url("profesor") }}/{{session('rol_id')}}">Profesor</a></li>
-                        <li><a href="{{ url("grupo") }}">Grupo</a></li>
-                        <li><a href="{{ url("kardex") }}">Kardex</a></li>
-                        <li><a href="{{ url("reporte") }}">Reporte</a></li>
-                    @endif
-                    @if(session('rol') == "ADMIN")
-                        <li><a href="{{ url("alumno") }}">Alumno</a></li>
-                        <li><a href="{{ url("profesor") }}">Profesor</a></li>
-                        <li><a href="{{ url("inscripcion") }}">Inscripcion</a></li>
-                        <li><a href="{{ url("curso") }}">Curso</a></li>
-                        <li><a href="{{ url("grupo") }}">Grupo</a></li>
-                        <li><a href="{{ url("aula") }}">Aula</a></li>
-                        <li><a href="{{ url("kardex") }}">Kardex</a></li>
-                        <li><a href="{{ url("reporte") }}">Reporte</a></li>
-                    @endif
-                @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(session('login'))
-                    <li><a>{{session('username')}}</a></li>
+                    <li><a>{{session('email')}}</a></li>
                     <li><a href="{{ url("logout") }}">Cerrar Sesion</a></li>
                 @else
                     <li>
