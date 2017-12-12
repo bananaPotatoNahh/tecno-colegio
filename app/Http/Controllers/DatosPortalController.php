@@ -5,6 +5,9 @@ namespace colegio\Http\Controllers;
 use Illuminate\Http\Request;
 
 use colegio\Http\Requests;
+
+use colegio\Http\Contador;
+
 use colegio\DatosPortal;
 use Illuminate\Support\Facades\Redirect;
 use colegio\Http\Requests\DatosPortalFormRequest;
@@ -19,13 +22,17 @@ class DatosPortalController extends Controller
     public function index(Request $request )
     {
 
+        $template = 'portal.datosportal.index';
+        Contador::insertarRegistro($template);
+        $cantidad = Contador::getCantidadTemplate($template);
+
         if($request)
         {
             $query=trim($request->get('searchText'));
             $datosportal=DB::table('datosportal')->where('nombre','LIKE','%'.$query.'%')->paginate(5);
             ;
 
-             return view('portal.datosportal.index')->with(["datosportal"=>$datosportal,"searchText"=>$query]);
+             return view('portal.datosportal.index')->with(["datosportal"=>$datosportal,"searchText"=>$query, "cantidad" => $cantidad]);
         }
     }
     public function create()

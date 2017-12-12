@@ -47,6 +47,7 @@
             {{$datosportal->render()}}
         </div>
 
+        <p>Vistas: {{$cantidad}}</p>
 
     </div>
 
