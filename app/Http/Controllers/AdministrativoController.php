@@ -39,7 +39,7 @@ class AdministrativoController extends Controller
     }
     public function create()
     {
-        $cargo=DB::table('cargo')-where('estado','=','0')->get();
+        $cargo=DB::table('cargo')->where('estado','=','0')->get();
         return view('persona.administrativo.create',["cargo"=>$cargo]);
 
     }
