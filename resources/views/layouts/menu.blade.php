@@ -40,7 +40,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
-                               aria-expanded="false">Persona <span class="caret"></span></a>
+                               aria-expanded="false">Portal <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ url("portal/normas") }}">Normas</a></li>
                                 <li><a href="{{ url("portal/reglamento") }}">Reglamento</a></li>
@@ -51,7 +51,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true"
-                               aria-expanded="false">Persona <span class="caret"></span></a>
+                               aria-expanded="false">Plan de Estudio <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ url("planestudio/planestudio") }}">Plan de Estudio</a></li>
                                 <li><a href="{{ url("planestudio/materias") }}">Materias</a></li>
