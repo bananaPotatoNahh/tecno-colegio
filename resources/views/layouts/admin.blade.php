@@ -12,11 +12,12 @@
     <link href="{{asset('libraries/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('libraries/vis/css/vis.min.css')}}" rel="stylesheet">
 
-    @if($_COOKIE['tema'] == 2)
+    @if(isset($_COOKIE['tema']) and $_COOKIE['tema'] == 2)
         <link id="refEstilos" href="{{asset('assets/css/theme2.css')}}" rel="stylesheet">
-    @elseif($_COOKIE['tema'] == 3)
+    @elseif(isset($_COOKIE['tema']) and $_COOKIE['tema'] == 3)
         <link id="refEstilos" href="{{asset('assets/css/theme3.css')}}" rel="stylesheet">
     @else
+        {{$_COOKIE['tema'] = 1}}
         <link id="refEstilos" href="{{asset('assets/css/theme1.css')}}" rel="stylesheet">
     @endif
 
