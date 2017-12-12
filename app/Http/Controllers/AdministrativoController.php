@@ -2,6 +2,7 @@
 
 namespace colegio\Http\Controllers;
 
+use colegio\User;
 use Illuminate\Http\Request;
 
 use colegio\Http\Requests;
@@ -53,6 +54,15 @@ class AdministrativoController extends Controller
         $administrativo->codigo=$request->get('codigo');
         $administrativo->idcargo=$request->get('idcargo');
         $administrativo->save();
+
+        // Create User
+        $usuario = new User();
+        $usuario->name = $administrativo->nombre;
+        $usuario->email = $administrativo->correoelectronico;
+        $usuario->password = bcrypt($administrativo->numerodocumento);
+        $usuario->rol = "ADMINISTRATIVO";
+        $usuario->save();
+
         return Redirect::to('persona/administrativo');
 
     }
