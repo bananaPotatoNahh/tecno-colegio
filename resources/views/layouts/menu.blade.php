@@ -15,10 +15,14 @@
             <ul class="nav navbar-nav">
                 @if(session('login'))
                     @if(session('rol') == "ADMINISTRATIVO")
-                        <li><a href="#">ADMINISTRATIVO</a></li>
+                        <li><a href="{{ url("portal/normas") }}">Normas</a></li>
+                        <li><a href="{{ url("portal/reglamento") }}">Reglamento</a></li>
+                        <li><a href="{{ url("portal/logros") }}">Logros</a></li>
+                        <li><a href="{{ url("portal/noticias") }}">Noticias</a></li>
                     @endif
                     @if(session('rol') == "PROFESOR")
-                        <li><a href="#">PROFESOR</a></li>
+                            <li><a href="{{ url("planestudio/materias") }}">Materias</a></li>
+                            <li><a href="{{ url("persona/curriculum") }}">Curriculum</a></li>
                     @endif
                     @if(session('rol') == "ADMIN")
                         <li><a href="{{ url("portal/datosportal") }}">Inicio</a></li>
