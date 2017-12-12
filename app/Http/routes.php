@@ -13,12 +13,7 @@
 
 use colegio\Http\Contador;
 
-Route::get('/', function () {
-    $template = 'welcome';
-    Contador::insertarRegistro($template);
-    $cantidad = Contador::getCantidadTemplate($template);
-    return view($template, compact('cantidad'));
-});
+Route::get('/', 'DatosPortalController@index');
 
 Route::post('login', 'LoginController@login');
 

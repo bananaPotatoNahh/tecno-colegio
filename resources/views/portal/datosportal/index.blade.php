@@ -3,9 +3,10 @@
     <div class="row">
 
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <h3>Listado de Portal <a href="datosportal/create"><button  class="btn btn-bitbucket">Nuevo</button></a> </h3>
+            <h3>Listado de Portal @if(session('login'))<a href="datosportal/create"><button  class="btn btn-bitbucket">Nuevo</button></a>@endif </h3>
+            @if(session('login'))
             @include('portal.datosportal.search')
-
+            @endif
         </div>
     </div>
     <div class="row">
@@ -33,11 +34,13 @@
                             <td>{{$dat->descripcion}}</td>
                             <td>{{$dat->logo}} </td>
                             <td>
+                                @if(session('login'))
                                 <a href="{{URL::action('DatosPortalController@edit',$dat->idportal)}}">   <button class="btn btn-info">Editar</button>
                                 </a>
-                              <a href="" data-target="#modal-delete-{{$dat->idportal}}" data-toggle="modal"> <button class="btn btn-danger">Eliminar</button>
-                              </a>
-                                </td>
+                                <a href="" data-target="#modal-delete-{{$dat->idportal}}" data-toggle="modal"> <button class="btn btn-danger">Eliminar</button>
+                                </a>
+                                @endif
+                            </td>
 
                         </tr>
                         @include('portal.datosportal.modal')
