@@ -10,9 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use colegio\Http\Contador;
 
 Route::get('/', function () {
-    return view('welcome');
+    $template = 'welcome';
+    Contador::insertarRegistro($template);
+    $cantidad = Contador::getCantidadTemplate($template);
+    return view($template, compact('cantidad'));
 });
 Route::resource('persona/administrativo','AdministrativoController');
 Route::resource('persona/cargo','CargoController');
