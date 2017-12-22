@@ -18,6 +18,12 @@ class administrativo extends Model
         'correoelectronico',
         'codigo',
         'idportal',
-        'idcargo'
+        'idcargo',
+        'usuario_id'
     ];
+
+    public function usuario()
+    {
+        return $this->belongsTo('colegio\User', 'usuario_id');
+    }
 }
