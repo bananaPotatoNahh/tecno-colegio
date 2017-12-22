@@ -17,25 +17,14 @@ class LoginController extends Controller
         $password = $request->password;
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             // Logueado Con exito
-            $user = User::with("rol")->where("email", $email)->first();
-            $rol_id = -1;
-            switch ($user->rol->nombre) {
-                case "ADMINISTRATIVO":
-                    $rol_id = $user->administrativo->idadministrativo;
-                    break;
-                case "ADMIN":
-                    $rol_id = $user->administrador->id;
-                    break;
-            }
-            $request->session()->put("username", $user->name);
+            $user = User::where("email", $email)->first();
             $request->session()->put("user_id", $user->id);
-            $request->session()->put("rol_id", $rol_id);
-            $request->session()->put("rol", $user->rol->nombre);
+            $request->session()->put("email", $user->email);
+            $request->session()->put("rol", $user->rol);
             $request->session()->put("login", "OK");
         }
         return redirect("/");
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -44,9 +33,8 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         // Eliminar variables de sesion
-        $request->session()->forget("username");
         $request->session()->forget("user_id");
-        $request->session()->forget("rol_id");
+        $request->session()->forget("email");
         $request->session()->forget("rol");
         $request->session()->forget("login");
         return redirect("/");
