@@ -118,7 +118,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 @if(session('login'))
-                    <li><a>{{session('username')}}</a></li>
+                    <li><a>{{session('email')}}</a></li>
                     <li><a href="{{ url("logout") }}">Cerrar Sesion</a></li>
                 @else
                     <li>
