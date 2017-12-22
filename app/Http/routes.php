@@ -11,15 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DatosPortalController@index');
 
 Route::post('login', 'LoginController@login');
 
-Route::group(['middleware' => 'authLogin'], function () {
+//Route::group(['middleware' => 'authLogin'], function () {
     Route::get('logout', 'LoginController@logout');
-    Route::group(['middleware' => 'authAdministrativo'], function () {
+//    Route::group(['middleware' => 'authAdministrativo'], function () {
         Route::resource('persona/administrativo', 'AdministrativoController');
         Route::resource('persona/cargo', 'CargoController');
         Route::resource('persona/docente', 'DocenteController');
@@ -56,8 +54,8 @@ Route::group(['middleware' => 'authLogin'], function () {
         Route::get('reportesnoticias', 'NoticiasController@reporte');
         Route::get('reportesplanestudio', 'PlanEstudioController@reporte');
         Route::get('reportesmaterias', 'MateriasController@reporte');
-    });
-});
+//    });
+//});
 
 
 // vistaspublicas
