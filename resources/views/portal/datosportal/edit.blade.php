@@ -31,7 +31,7 @@
 
 
                 <label for="objetivoGeneral">objetivo</label>
-                <input type="text" name="objetivoGeneral" class="form-control" value="{{$datosportal->objetivoGeneral}}" placeholder="objetivoGeneral">
+                <input type="text" name="objetivoGeneral" class="form-control" value="{{$datosportal->objetivogeneral}}" placeholder="objetivoGeneral">
 
 
                 <label for="descripcion">descripcion</label>

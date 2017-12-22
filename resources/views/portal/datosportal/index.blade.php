@@ -40,7 +40,7 @@
                                 <td>{{$dat->nombre}}</td>
                                 <td>{{$dat->mision}} </td>
                                 <td>{{$dat->vision}}</td>
-                                <td>{{$dat->objetivoGeneral}} </td>
+                                <td>{{$dat->objetivogeneral}} </td>
                                 <td>{{$dat->descripcion}}</td>
                                 <td>{{$dat->logo}} </td>
                                 <td>
@@ -76,7 +76,7 @@
                 <h2>vision</h2>
                 <h4>{{$datosportal[0]->vision}}</h4>
                 <h2>objetivo general</h2>
-                <h4>{{$datosportal[0]->objetivoGeneral}} </h4>
+                <h4>{{$datosportal[0]->objetivogeneral}} </h4>
                 <h2>descripcion</h2>
                 <h4>{{$datosportal[0]->descripcion}}</h4>
                 <h2>logo</h2>

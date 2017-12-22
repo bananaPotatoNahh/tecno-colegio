@@ -13,7 +13,7 @@ class datosPortal extends Model
         'nombre',
         'mision',
         'vision',
-        'objetivoGeneral',
+        'objetivogeneral',
         'descripcion' ,
         'logo'
     ];

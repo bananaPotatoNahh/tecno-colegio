@@ -62,7 +62,7 @@ class DatosPortalController extends Controller
         $datosportal->nombre = $request->get('nombre');
         $datosportal->mision = $request->get('mision');
         $datosportal->vision = $request->get('vision');
-        $datosportal->objetivoGeneral = $request->get('objetivoGeneral');
+        $datosportal->objetivogeneral = $request->get('objetivoGeneral');
         $datosportal->descripcion = $request->get('descripcion');
         $datosportal->logo = $request->get('logo');
         $datosportal->save();
@@ -94,7 +94,7 @@ class DatosPortalController extends Controller
         $datosportal->nombre = $request->get('nombre');
         $datosportal->mision = $request->get('mision');
         $datosportal->vision = $request->get('vision');
-        $datosportal->objetivoGeneral = $request->get('objetivoGeneral');
+        $datosportal->objetivogeneral = $request->get('objetivoGeneral');
         $datosportal->descripcion = $request->get('descripcion');
         $datosportal->logo = $request->get('logo');
         $datosportal->update();
@@ -178,7 +178,7 @@ class DatosPortalController extends Controller
 
             $pdf::SetFont("Arial", "", 10);
 
-            $pdf::cell(190, 8, utf8_decode($per->objetivoGeneral), 1, "", "L", true);
+            $pdf::cell(190, 8, utf8_decode($per->objetivogeneral), 1, "", "L", true);
 
 
             $pdf::Ln();

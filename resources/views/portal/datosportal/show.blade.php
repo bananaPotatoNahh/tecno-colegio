@@ -25,7 +25,7 @@
                             </li>
                             <p></p>
                             <li>
-                                <i class="fa fa-chevron-right text-danger"></i> <b class="h3 text-gray-dark">Objetivo  : </b> <span class="text-muted h3">{{ $datosportal->ojetivoGeneral }}</span>
+                                <i class="fa fa-chevron-right text-danger"></i> <b class="h3 text-gray-dark">Objetivo  : </b> <span class="text-muted h3">{{ $datosportal->ojetivogeneral }}</span>
                             </li>
                             <p></p>
                             <li>
