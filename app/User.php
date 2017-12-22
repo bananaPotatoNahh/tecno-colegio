@@ -30,4 +30,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo('colegio\Rol', 'rol_id');
     }
+
+    public function administrador()
+    {
+        return $this->hasOne('colegio\Administrador', 'usuario_id');
+    }
+
+    public function administrativo()
+    {
+        return $this->hasOne('colegio\administrativo', 'usuario_id');
+    }
 }
