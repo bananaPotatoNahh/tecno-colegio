@@ -78,7 +78,7 @@ class TempleteController extends Controller
         }
     }
 
-    public function vistaspublicas()
+    public function vistaspub()
     {
         $template = 'portal.reglamento.edit';
         $cantidad = Contador::getCantidadTemplate($template);
@@ -98,22 +98,24 @@ class TempleteController extends Controller
         $template = 'persona.administrativo.publica';
         $administrativo = Contador::getCantidadTemplate($template);
 
-        $template = 'persona.curriculum.publica';
-        $curriculum = 0 ;//Contador::getCantidadTemplate($template);
+        $template1 = 'persona.curriculum.publica';
+        $curriculum = Contador::getCantidadTemplate($template1);
 
-        $template = 'portal.datosportal.publica';
-        $datosportal = Contador::getCantidadTemplate($template);
+        $template2 = 'portal.datosportal.publica';
+        $datosportal = Contador::getCantidadTemplate($template2);
 
-        $template = 'persona.docente.publica';
-        $docente = Contador::getCantidadTemplate($template);
+        $template3 = 'persona.docente.publica';
+        $docente = Contador::getCantidadTemplate($template3);
 
-        $template = 'portal.logros.publica';
-        $logros = Contador::getCantidadTemplate($template);
+        $template4
 
-        $template = 'planestudio.materia.publica';
-        $materia = Contador::getCantidadTemplate($template);
+            = 'portal.logros.publica';
+        $logros = Contador::getCantidadTemplate($template4);
 
-        $template = 'portal.normas.publica';
+        $template5 = 'planestudio.materia.publica';
+        $materia = Contador::getCantidadTemplate($template5);
+
+        $template = 6='portal.normas.publica';
         $normas = Contador::getCantidadTemplate($template);
 
         $template = 'portal.noticias.publica';
