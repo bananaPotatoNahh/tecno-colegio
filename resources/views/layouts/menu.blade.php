@@ -30,55 +30,80 @@
 
                 @if(session('login'))
                     <li><a href="{{url('portal/datosportal')}}">Inicio</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Portal <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                    @if(session('rol') == 'ADMINISTRATIVO')
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Portal <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-                            <li><a href="{{url('portal/datosportal')}}">Datos del Portal</a></li>
-                            <li><a href="{{url('portal/normas')}}">normas</a></li>
-                            <li><a href="{{url('portal/noticias')}}">noticias</a></li>
-                            <li><a href="{{url('portal/logros')}}">logros</a></li>
-                            <li><a href="{{url('portal/reglamento')}}">reglamento</a></li>
+                                <li><a href="{{url('portal/datosportal')}}">Datos del Portal</a></li>
+                                <li><a href="{{url('portal/normas')}}">normas</a></li>
+                                <li><a href="{{url('portal/noticias')}}">noticias</a></li>
+                                <li><a href="{{url('portal/logros')}}">logros</a></li>
+                                <li><a href="{{url('portal/reglamento')}}">reglamento</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Persona <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                            </ul>
+                        </li>
+                        <li><a href="{{url('persona/curriculum')}}">reglamento</a></li>
+                        <li><a href="{{url('reportes/')}}">Reportes</a></li>
+                    @endif
+                    @if(session('rol') == 'ADMIN')
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Portal <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-                            <li><a href="{{url('persona/persona')}}">Estudiantes</a></li>
-                            <li><a href="{{url('persona/docente')}}">Docentes</a></li>
-                            <li><a href="{{url('persona/administrativo')}}">Administrativos</a></li>
+                                <li><a href="{{url('portal/datosportal')}}">Datos del Portal</a></li>
+                                <li><a href="{{url('portal/normas')}}">normas</a></li>
+                                <li><a href="{{url('portal/noticias')}}">noticias</a></li>
+                                <li><a href="{{url('portal/logros')}}">logros</a></li>
+                                <li><a href="{{url('portal/reglamento')}}">reglamento</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Plan Estudio <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Persona <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-                            <li><a href="{{url('planestudio/materias')}}">Materia</a></li>
-                            <li><a href="{{url('planestudio/planestudio')}}">Plan de Estudio</a></li>
+                                <li><a href="{{url('persona/persona')}}">Estudiantes</a></li>
+                                <li><a href="{{url('persona/docente')}}">Docentes</a></li>
+                                <li><a href="{{url('persona/administrativo')}}">Administrativos</a></li>
+                                <li><a href="{{url('persona/curriculum')}}">reglamento</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Estadisticas <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Plan Estudio <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-                            <li><a href="{{url('planestudio/materias')}}">Visitas Publicas</a></li>
-                            <li><a href="{{url('planestudio/planestudio')}}">Visitas Internas</a></li>
-                            <li><a href="{{url('planestudio/planestudio')}}">Registro de personas</a></li>
-                            <li><a href="{{url('planestudio/planestudio')}}">Registro de Usuarios</a></li>
-                            <li><a href="{{url('planestudio/planestudio')}}">Registros de Portal</a></li>
+                                <li><a href="{{url('planestudio/materias')}}">Materia</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Plan de Estudio</a></li>
 
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">Estadisticas <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-                    <li><a href="{{url('reportes')}}">Reportes</a></li>
+                                <li><a href="{{url('planestudio/materias')}}">Visitas Publicas</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Visitas Internas</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Registro de personas</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Registro de Usuarios</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Registros de Portal</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li><a href="{{url('reportes')}}">Reportes</a></li>
+                    @endif
                     @include('layouts.searcht')
                 @else
                     <li><a href="{{url('reglamentospublica/')}}">Reglamentos</a></li>
