@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use colegio\Http\Requests\MateriaFormRequest;
 use DB;
 
+use Fpdf;
 class materiasController extends Controller
 {
 
@@ -76,7 +77,43 @@ class materiasController extends Controller
 
     }
 
+    public function reporte()
+    {
+        $personas=DB::table('materias')->get();
+        $pdf= new Fpdf();
+        $pdf::AddPage();
+        $pdf::SetTextColor(35,56,113);
+        $pdf::SetFont('Arial','B',16);
+        $pdf::Cell(0,10,utf8_decode('Listado de Logros'),0,"","C");
+        $pdf::Ln();
+        $pdf::Ln();
+        $pdf::SetTextColor(0,0,0);//color del texto
+        $pdf::SetFillColor(255, 228, 196);//color del Fondo de la celda
 
+        $pdf::SetFont('Arial','B',12);
+
+        //ancho de las columnas todos esos numeros sumados debe dar un  promedio de 190
+        $pdf::cell(40,8,utf8_decode('Nombre'),1,"","L",true);
+        $pdf::cell(40,8,utf8_decode('Sigla'),1,"","L",true);
+        $pdf::cell(110,8,utf8_decode('Contenido'),1,"","L",true);
+        foreach ($personas as $per)
+        {
+            $pdf::Ln();
+            $pdf::SetTextColor(0,0,0);// color del texto
+            $pdf::SetFillColor(255,255,255);// color de la celda
+
+            $pdf::SetFont("Arial","",10);
+
+            $pdf::cell(40,8,utf8_decode($per->nombre),1,"","L",true);
+            $pdf::cell(40,8,utf8_decode($per->sigla),1,"","L",true);
+            $pdf::cell(110,8,utf8_decode($per->contenido),1,"","L",true);
+
+        }
+        $pdf::Output();
+        exit;
+
+
+    }
 
 
 

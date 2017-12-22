@@ -151,11 +151,13 @@ return [
         /*
          * Application Service Providers...
          */
+        Barryvdh\DomPDF\ServiceProvider::class,
         colegio\Providers\AppServiceProvider::class,
         colegio\Providers\AuthServiceProvider::class,
         colegio\Providers\EventServiceProvider::class,
         colegio\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Anouar\Fpdf\FpdfServiceProvider::class,
     ],
 
     /*
@@ -202,7 +204,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-    ],
+        'Fpdf'=> Anouar\Fpdf\Facades\Fpdf::class,
+        ]
+    ,
 
 ];

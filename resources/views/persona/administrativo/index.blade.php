@@ -1,9 +1,14 @@
 @extends('layouts.admin')
 @section('contenido')
     <div class="row">
+        <div class="mensaje">
 
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <h3>Listado de Administrativos <a href="create"><button  class="btn btn-bitbucket">Nuevo</button></a> </h3>
+            <h2>   Listado de administrativos</h2>
+        </div>
+        <div class=" col-md-8 col-sm-8 col-xs-12">
+
+            <h3> <a href="administrativo/create"><button  class="btn btn-bitbucket">Nuevo</button></a>
+                </h3>
             @include('persona.administrativo.search')
 
         </div>
@@ -21,23 +26,22 @@
                     <th>numero documento</th>
                     <th>correo electronico</th>
                     <th>codigo</th>
-                    <th>cargo</th>
+                    <th>opciones</th>
                     </thead>
-                    @foreach($administrativo as $per)
+                    @foreach($personas as $dat)
                         <tr>
                            
-                            <td>{{$per->idadministrativo}} </td>
-                            <td>{{$per->nombre}}</td>
-                            <td>{{$per->apellido}} </td>
-                            <td>{{$per->direccion}}</td>
-                            <td>{{$per->numerodocumento}} </td>
-                            <td>{{$per->correoelectronico}}</td>
-                            <td>{{$per->codigo}} </td>
-                            <td>{{$per->cargo }}</td>
+                            <td>{{$dat->idpersona}} </td>
+                            <td>{{$dat->nombre}}</td>
+                            <td>{{$dat->apellido}} </td>
+                            <td>{{$dat->direccion}}</td>
+                            <td>{{$dat->numerodocumento}} </td>
+                            <td>{{$dat->correoelectronico}}</td>
+                            <td>{{$dat->codigo}} </td>
                             <td>
-                                <a href="{{URL::action('AdministrativoController@edit',$per->idadministrativo)}}">   <button class="btn btn-info">Editar</button>
+                                <a href="{{URL::action('AdministrativoController@edit',$dat->idpersona)}}">   <button class="btn btn-info">Editar</button>
                                 </a>
-                              <a href="" data-target="#modal-delete-{{$per->idadministrativo}}" data-toggle="modal"> <button class="btn btn-danger">Eliminar</button>
+                              <a href="" data-target="#modal-delete-{{$dat->idpersona}}" data-toggle="modal"> <button class="btn btn-danger">Eliminar</button>
                               </a>
                                 </td>
 
@@ -46,8 +50,9 @@
                     @endforeach
                 </table>
             </div>
-            {{$administrativo->render()}}
+            {{$personas->render()}}
         </div>
+        <p>Vistas: {{$cantidad}}</p>
 
 
     </div>

@@ -1,4 +1,4 @@
-{!! Form::open(array('url'=>'planestudio/materias','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
+{!! Form::open(array('url'=>'persona/curriculum','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!}
 <div class="form-group">
     <input type="text" class="form-control" name="searchText" placeholder="Buscar" value="{{$searchText}}">
     <span class="input-group-btn">

@@ -1,8 +1,12 @@
 @extends('layouts.admin')
 @section('contenido')
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <h3>Nuevo ADministrativo</h3>
+    <div class="mensaje">
+
+        <h3>Nuevo administrativo</h3>
+    </div>
+    <div class=" col-md-12 col-sm-12 col-xs-12">
+
+
              @if(count($errors)>0)
                     <div class="alert alert-danger">
                  <ul>
@@ -12,10 +16,9 @@
                  </ul>
               </div>
                 @endif
-            {!! Form::open(array('url'=>'portal/datosportal','method'=>'POST','autocomplete'=>'off')) !!}
+            {!! Form::open(array('url'=>'persona/administrativo','method'=>'POST','autocomplete'=>'off')) !!}
                 {{Form::token()}}
                 <div class="form-group">
-
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" class="form-control" placeholder="nombre">
 
@@ -34,14 +37,14 @@
 
                     <label for="codigo">codigo</label>
                     <input type="text" name="codigo" class="form-control" placeholder="codigo">
-
-
+                    <input type="hidden" name="tipo" class="form-control" placeholder="tipo" value="3">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary" type="submit" href="">Guardar</button>
                     <button class="btn btn-danger" type="reset">Cancelar</button>
                 </div>
             {!! Form::close() !!}
+            <p>Vistas: {{$cantidad}}</p>
         </div>
-    </div>
+
 @endsection

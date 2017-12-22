@@ -29,3 +29,49 @@ Route::resource('portal/noticias','NoticiasController');
 Route::resource('planestudio/planestudio','PlanEstudioController');
 Route::resource('planestudio/detalleplanestudio','DetallePlanEstudioController');
 Route::resource('planestudio/materias','MateriasController');
+Route::get('reportes', function (){
+    return view('graficos/reportes');
+});
+
+
+//rutas reportes
+Route::get('reportesadministrativos', 'AdministrativoController@reporte');
+Route::get('reportescargo','CargoController@reporte');
+Route::get('reportesdocente','DocenteController@reporte');
+Route::get('reportesdocentemateria','DocenteMateriaController@reporte');
+Route::get('reportescurriculum','CurriculumController@reporte');
+Route::get('reportespersona','PersonaController@reporte');
+Route::get('reportesdatosportal','DatosPortalController@reporte');
+Route::get('reportesnormas','NormasController@reporte');
+Route::get('reportesreglamento','ReglamentosController@reporte');
+Route::get('reporteslogros','LogrosController@reporte');
+Route::get('reportesobjetivos','ObjetivosController@reporte');
+Route::get('reportesnoticias','NoticiasController@reporte');
+Route::get('reportesplanestudio','PlanEstudioController@reporte');
+Route::get('reportesdetalleplanestudio','DetallePlanEstudioController@reporte');
+Route::get('reportesmaterias','MateriasController@reporte');
+
+Route::post('curriculum/create', 'CurriculumController@update');
+Route::resource('buscador','TempleteController@show');
+Route::get('vistapublica', 'DatosPortalController@publica');
+
+Route::get('estadistica', 'TempleteController@personaEstadistica');
+Route::get('estadisticasvistaspublicas', 'TempleteController@vistaspublicasEstadisticas');
+Route::get('normaspublica', 'NormasController@publica');
+
+Route::get('noticiaspublica', 'NoticiasController@publica');
+
+Route::get('reglamentospublica', 'ReglamentosController@publica');
+
+Route::get('logrospublica', 'LogrosController@publica');
+Route::get('vistapublica', 'DatosPortalController@publica');
+
+Route::get('download', 'CurriculumController@descargar');
+
+Route::get('vistapublica', 'DatosPortalController@publica');
+
+Route::get('vistapublica', 'DatosPortalController@publica');
+
+Route::get('vistapublica', 'DatosPortalController@publica');
+
+Route::get('vistapublica', 'DatosPortalController@publica');

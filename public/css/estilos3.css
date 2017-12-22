@@ -1,0 +1,125 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+
+}
+
+body {
+    background:#f2f2f2;
+    color:#333;
+    font-family:Arial, helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color:#F24C27;
+}
+
+.wrapp {
+    max-width: 1000px;
+    width:100%;
+    margin:auto;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    padding:10px 0;
+    background: #fff;
+    overflow: hidden;
+}
+
+.logo {
+    width: 43px;
+    float: left;
+}
+
+.logo img {
+    width:100%;
+    vertical-align: top;
+}
+
+.nuevocolor{
+    background:
+            #008080 !important;
+
+}
+.nuevocolor ul li a:hover{
+    background: #ABEBC6 !important;
+    color:#154360   !important;
+}
+
+nav ul li {
+    display: inline-block;
+    margin:0px 5px;
+}
+
+nav ul li a {
+    display: block;
+    background:  #008080 !important; ;
+    color: #ffffff !important;;
+    padding:10px 20px;
+    text-decoration: none;
+    border-radius:3px;
+    transition:all 300ms ease;
+}
+
+nav ul li a:hover {
+    color: #f0ad4e;
+    background: #008080 !important;
+}
+
+.mensaje {
+    background:  #008080 !important;;
+    padding:10px;
+    color:#fff;
+    margin:10px 0;
+    border-radius:5px;
+}
+
+.articulo {
+    float: left;
+    width: 70%;
+    padding:0px 20px 20px 0px;
+}
+
+aside {
+    float: left;
+    width: 30%;
+    background:#024959;
+    color:#f0ad4e;
+    padding:20px;
+    border-radius:5px;
+}
+
+.widget ul {
+    margin-left:20px;
+}
+
+.widget ul li {
+    margin:10px 0;
+    width: 100%;
+}
+
+.widget ul li a {
+    color:#f0ad4e;
+}
+
+.widget ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    width: 100%;
+    background:#800080;
+    padding:15px 0;
+    color:#fff;
+}
+
+footer p {
+    text-align:center;
+}

@@ -1,220 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Colegio | www.colegioBelen.com</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+
+    @if(!isset($_COOKIE['tema']))
+        {!! $_COOKIE['tema'] = 1 !!}
+    @endif
+
+    @if(isset($_COOKIE['tema']) and $_COOKIE['tema'] == 2)
+        <link id="refEstilos" href="{{asset('css/estilos2.css')}}" rel="stylesheet">
+    @elseif(isset($_COOKIE['tema']) and $_COOKIE['tema'] == 3)
+        <link id="refEstilos" href="{{asset('css/estilos3.css')}}" rel="stylesheet">
+    @else
+        <link id="refEstilos" href="{{asset('css/estilos.css')}}" rel="stylesheet">
+    @endif
+
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
-    <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
-    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
-
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+<body>
+    <nav class="navbar navbar-default nuevocolor" >
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Esto </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <!-- los dropdown se usan para hacer menus desplegables bootstrap 3 -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li ><a href="{{url('portal/datosportal')}}">Inicio</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portal <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-    <header class="main-header">
+                                <li><a href="{{url('portal/datosportal')}}">Datos del Portal</a></li>
+                                <li><a href="{{url('portal/normas')}}">normas</a></li>
 
-        <!-- Logo -->
-        <a href="index2.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>CB</b>V</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>PortalBelen</b></span>
-        </a>
+                                <li><a href="{{url('portal/noticias')}}">noticias</a></li>
 
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Navegación</span>
-            </a>
-            <!-- Navbar Right Menu -->
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
+                                <li><a href="{{url('portal/logros')}}">logros</a></li>
 
-                    <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <small class="bg-red">Online</small>
-                            <span class="hidden-xs">Juan Carlos Arcila Díaz</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
 
-                                <p>
-                                    www.colegioBelen.com - Tecnologia Web
-                                    <small>www.youtube.com/jcarlosad7</small>
-                                </p>
-                            </li>
+                                <li><a href="{{url('portal/reglamento')}}">reglamento</a></li>
 
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Persona <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
 
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Cerrar</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
+                                <li><a href="{{url('persona/persona')}}">Estudiantes</a></li>
 
-                </ul>
-            </div>
+                                <li><a href="{{url('persona/docente')}}">Docentes</a></li>
 
+                                <li><a href="{{url('persona/administrativo')}}">Administrativos</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plan Estudio <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{url('planestudio/materias')}}">Materia</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Plan de Estudio</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estadisticas <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{url('planestudio/materias')}}">Visitas Publicas</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Visitas Internas</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Registro de personas</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Registro de Usuarios</a></li>
+                                <li><a href="{{url('planestudio/planestudio')}}">Registros de Portal</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">Tema <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="tema1">Tema 1</a></li>
+                                <li><a href="#" id="tema2">Tema 2</a></li>
+                                <li><a href="#" id="tema3">Tema 3</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="{{url('reportes')}}">Reportes</a></li>
+                    </ul>
+
+                    </ul>
+
+
+
+
+
+                </div><!-- /.navbar-collapse -->
+
+
+            </div><!-- /.container-fluid -->
         </nav>
-    </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            <!-- Sidebar user panel -->
 
-            <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu">
-                <li class="header"></li>
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-laptop"></i>
-                        <span>Portal</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="portal/datosportal"><i class="fa fa-circle-o"></i> Datos Portal</a></li>
-                        <li><a href="portal/logros"><i class="fa fa-circle-o"></i> Logros</a></li>
-                        <li><a href="portal/normas"><i class="fa fa-circle-o"></i> Normas</a></li>
-                        <li><a href="portal/objetivo"><i class="fa fa-circle-o"></i> Objetivo</a></li>
-                        <li><a href="portal/reglamento"><i class="fa fa-circle-o"></i> Reglamento</a></li>
-
-                    </ul>
-                </li>
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-th"></i>
-                        <span>Registro de personas</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="persona/cargo"><i class="fa fa-circle-o"></i> Cargo</a></li>
-                        <li><a href="persona/administrativo"><i class="fa fa-circle-o"></i> administrativo</a></li>
-                        <li><a href="persona/docente"><i class="fa fa-circle-o"></i> docente</a></li>
-                        <li><a href="persona/estudiante"><i class="fa fa-circle-o"></i> estudiante</a></li>
-                        <li><a href="persona/curriculum"><i class="fa fa-circle-o"></i> curriculum</a></li>
-                        <li><a href="persona/noticia"><i class="fa fa-circle-o"></i> noticia</a></li>
-
-                         </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span>Planes de Estudio</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="planestudio/PlanEstudio"><i class="fa fa-circle-o"></i> Plan de Estudio</a></li>
-                        <li><a href="planestudio/Materia"><i class="fa fa-circle-o"></i> Materia</a></li>
-                    </ul>
-                </li>
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-folder"></i> <span>Acceso</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                        <small class="label pull-right bg-red">PDF</small>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                        <small class="label pull-right bg-yellow">IT</small>
-                    </a>
-                </li>
-
-            </ul>
-        </section>
-        <!-- /.sidebar -->
-    </aside>
+<section class="main">
+    <div class="container">
 
 
 
+            @yield('contenido')
 
 
-    <!--Contenido-->
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
 
-        <!-- Main content -->
-        <section class="content">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Sistema de Ventas</h3>
-                            <div class="box-tools pull-right">
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-
-                                <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!--Contenido-->
-                                    @yield('contenido')
-                                    <!--Fin Contenido-->
-                                </div>
-                            </div>
-
-                        </div>
-                    </div><!-- /.row -->
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </section>
-
-        </div><!-- /.col -->
-</div><!-- /.row -->
-</div><!-- esto yo estoy aumentando porque daba un error
-
-</section><!-- /.content -->
-</div><!-- /.content-wrapper -->
-<!--Fin-Contenido-->
-<footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <b>Version</b> 2.3.0
     </div>
-    <strong>Copyright &copy; 2015-2020 <a href="www.incanatoit.com">IncanatoIT</a>.</strong> All rights reserved.
-</footer>
+</section>
 
+    <script src="{{asset('libraries/jQuery/js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('libraries/js.cookie.js')}}"></script>
+    <script src="{{asset('libraries/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('libraries/vis/js/vis.min.js')}}"></script>
+    <script src="{{asset('plugins/chartjs/Chart.js')}}"></script>
+    <script src="{{asset('plugins/chartjs/Chart.js/Chart.min.js')}}"></script>
 
-<!-- jQuery 2.1.4 -->
-<script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
-<!-- Bootstrap 3.3.5 -->
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('js/app.min.js')}}"></script>
-
+    <script src="{{asset('libraries/js.cookie.js')}}"></script>
+    <script src="{{asset('js/app.min.js')}}"></script>
+    <script type="application/javascript">
+        $('#tema1').click(function () {
+            Cookies.set('tema', 1);
+            location.reload();
+        });
+        $('#tema2').click(function () {
+            Cookies.set('tema', 2);
+            location.reload();
+        });
+        $('#tema3').click(function () {
+            Cookies.set('tema', 3);
+            location.reload();
+        });
+    </script>
 </body>
+<footer class="navbar-fixed-bottom">
+
+</footer>
 </html>

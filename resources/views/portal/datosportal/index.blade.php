@@ -1,9 +1,13 @@
 @extends('layouts.admin')
 @section('contenido')
     <div class="row">
+        <div class="mensaje">
 
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <h3>Listado de Portal <a href="create"><button  class="btn btn-bitbucket">Nuevo</button></a> </h3>
+            <h2>   Listado de Portal</h2>
+        </div>
+        <div class=" col-md-8 col-sm-8 col-xs-12">
+
+            <h3> <a href="datosportal/create"><button  class="btn btn-bitbucket">Nuevo</button></a> </h3>
             @include('portal.datosportal.search')
 
         </div>
@@ -21,6 +25,7 @@
                     <th>objetivo general</th>
                     <th>descripcion</th>
                     <th>logo</th>
+                    <th>opciones</th>
                     </thead>
                     @foreach($datosportal as $dat)
                         <tr>
@@ -46,8 +51,8 @@
             </div>
             {{$datosportal->render()}}
         </div>
-
         <p>Vistas: {{$cantidad}}</p>
+
 
     </div>
 

@@ -24,7 +24,8 @@ class CurriculumFormRequest extends Request
     public function rules()
     {
         return [
-            //
+            'codigo',
+            'curriculum'=>'required|mimes:pdf'
         ];
     }
 }

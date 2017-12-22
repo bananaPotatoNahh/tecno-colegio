@@ -1,9 +1,12 @@
 @extends('layouts.admin')
 @section('contenido')
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <h3>Nueva Noticia</h3>
-             @if(count($errors)>0)
+    <div class="mensaje">
+
+        <h3>Nuevo Noticia</h3>
+    </div>
+    <div class=" col-md-12 col-sm-12 col-xs-12">
+
+    @if(count($errors)>0)
                     <div class="alert alert-danger">
                  <ul>
                    @foreach($errors->all() as $error)
@@ -26,6 +29,8 @@
                     <button class="btn btn-danger" type="reset">Cancelar</button>
                 </div>
             {!! Form::close() !!}
-        </div>
+        <p>Vistas: {{$cantidad}}</p>
+
     </div>
+
 @endsection

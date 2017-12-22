@@ -1,9 +1,13 @@
 @extends('layouts.admin')
 @section('contenido')
     <div class="row">
+        <div class="mensaje">
 
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <h3>Listado de Alumnos <a href="create"><button  class="btn btn-bitbucket">Nuevo</button></a> </h3>
+            <h2>   Listado de Alumnos</h2>
+        </div>
+        <div class=" col-md-8 col-sm-8 col-xs-12">
+
+            <h3> <a href="persona/create"><button  class="btn btn-bitbucket">Nuevo</button></a> </h3>
             @include('persona.persona.search')
 
         </div>
@@ -21,21 +25,22 @@
                     <th>numero documento</th>
                     <th>correo electronico</th>
                     <th>codigo</th>
+                    <th>opciones</th>
                     </thead>
-                    @foreach($personas as $per)
+                    @foreach($personas as $dat)
                         <tr>
                            
-                            <td>{{$per->idpersona}} </td>
-                            <td>{{$per->nombre}}</td>
-                            <td>{{$per->apellido}} </td>
-                            <td>{{$per->direccion}}</td>
-                            <td>{{$per->numerodocumento}} </td>
-                            <td>{{$per->correoelectronico}}</td>
-                            <td>{{$per->codigo}} </td>
+                            <td>{{$dat->idpersona}} </td>
+                            <td>{{$dat->nombre}}</td>
+                            <td>{{$dat->apellido}} </td>
+                            <td>{{$dat->direccion}}</td>
+                            <td>{{$dat->numerodocumento}} </td>
+                            <td>{{$dat->correoelectronico}}</td>
+                            <td>{{$dat->codigo}} </td>
                             <td>
-                                <a href="{{URL::action('PersonaController@edit',$per->idpersona)}}">   <button class="btn btn-info">Editar</button>
+                                <a href="{{URL::action('PersonaController@edit',$dat->idpersona)}}">   <button class="btn btn-info">Editar</button>
                                 </a>
-                              <a href="" data-target="#modal-delete-{{$per->idpersona}}" data-toggle="modal"> <button class="btn btn-danger">Eliminar</button>
+                              <a href="" data-target="#modal-delete-{{$dat->idpersona}}" data-toggle="modal"> <button class="btn btn-danger">Eliminar</button>
                               </a>
                                 </td>
 
@@ -46,6 +51,7 @@
             </div>
             {{$personas->render()}}
         </div>
+        <p>Vistas: {{$cantidad}}</p>
 
 
     </div>

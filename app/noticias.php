@@ -11,7 +11,7 @@ class noticias extends Model
     public $timestamps=false;
     protected  $fillable=[
         'titulo',
-        'descripicon',
-        'idportal'
+        'descripcion',
+
     ];
 }

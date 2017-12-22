@@ -11,9 +11,11 @@
             <div class="modal-body">
                 <p>Confirme que desea eliminar el portal</p>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-primary">Confirmar</button>
+
             </div>
         </div>
     </div>
