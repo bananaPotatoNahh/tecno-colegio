@@ -102,7 +102,26 @@
             </ul>
 
 
-            {{--</ul>--}}
+            <ul class="nav navbar-nav navbar-right">
+                @if(session('login'))
+                    <li><a>{{session('username')}}</a></li>
+                    <li><a href="{{ url("logout") }}">Cerrar Sesion</a></li>
+                @else
+                    <li>
+                        <form action="{{ url("login") }}" method="post" class="navbar-form navbar-right">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <input required type="email" placeholder="Email" class="form-control" name="email">
+                            </div>
+                            <div class="form-group">
+                                <input required type="password" placeholder="Password" class="form-control"
+                                       name="password">
+                            </div>
+                            <button type="submit" class="btn btn-success">Entrar</button>
+                        </form>
+                    </li>
+                @endif
+            </ul>
 
 
         </div><!-- /.navbar-collapse -->
