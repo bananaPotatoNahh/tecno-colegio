@@ -17,7 +17,6 @@ Route::post('login', 'LoginController@login');
 
 //Route::group(['middleware' => 'authLogin'], function () {
     Route::get('logout', 'LoginController@logout');
-//    Route::group(['middleware' => 'authAdministrativo'], function () {
         Route::resource('persona/administrativo', 'AdministrativoController');
         Route::resource('persona/cargo', 'CargoController');
         Route::resource('persona/docente', 'DocenteController');
@@ -54,7 +53,6 @@ Route::post('login', 'LoginController@login');
         Route::get('reportesnoticias', 'NoticiasController@reporte');
         Route::get('reportesplanestudio', 'PlanEstudioController@reporte');
         Route::get('reportesmaterias', 'MateriasController@reporte');
-//    });
 //});
 
 
