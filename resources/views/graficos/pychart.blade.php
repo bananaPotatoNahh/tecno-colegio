@@ -11,7 +11,7 @@
 
                 ['Personas', 'Distribucion de personas registradas en el sistema'],
 
-               [ 'alumnos',{{$curriculum}}] ,
+               [ 'alumnos',{{$persona}}] ,
                 [ 'docente',{{$docente}}] ,
                 [ 'administrativo',{{$administrativo}}]
             ]);
@@ -76,14 +76,14 @@
                 var data = google.visualization.arrayToDataTable([
                     ['Personas', 'Distribucion de personas registradas en el sistema'],
 
-                    /*[ 'alumnos',}}] ,
-                   // [ 'docente',{}}] ,
-                    [ 'administrativo',{}}],*/
-                    ['administrativo', {{$administrativo}}], ['curriculum',0 ],
-                    ['datosportal', {{$datosportal}}],
-                    ['docente', {{$docente}}], ['logros', {{$logros}}], ['materia', {{$materia}}],
+                    [ 'alumnos',{{$persona}}] ,
+                    [ 'docente',{{$docente}}] ,
+                    [ 'administrativo',{{$administrativo}}]
+                  /*  ['administrativo', ], ['curriculum',0 ],
+                    ['datosportal', ],
+                    ['docente', ], ['logros', ], ['materia', ],
                     ['normas', $normas], ['noticias', $noticias], ['persona', $persona],
-                    ['planestudio', {{$planestudio}}], ['reglamento', {{$reglamento}}]
+                    ['planestudio', ], ['reglamento', ]*/
                 ]);
 
                 var options = {
@@ -110,7 +110,7 @@
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                     ['Element', 'Density', { role: 'style' }],
-                    ['alumno',{{$curriculum}}, '#b87333'],            // RGB value
+                    ['alumno',{{$persona}}, '#b87333'],            // RGB value
                     ['docente', {{$docente}}, '#b87333'],            // English color name
                     ['administrativo', {{$administrativo}}, '#b87333']
 
@@ -217,7 +217,7 @@
             // Tabla de datos: valores y etiquetas de la gráfica
             var data = google.visualization.arrayToDataTable([
                 ['Texto', 'Valor numérico'],
-                ['alumno',{{$curriculum}}],            // RGB value
+                ['alumno',{{$persona}}],            // RGB value
                 ['docente', {{$docente}}],            // English color name
                 ['administrativo', {{$administrativo}}]
             ]);

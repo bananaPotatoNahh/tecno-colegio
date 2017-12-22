@@ -1,29 +1,42 @@
 @extends('layouts.vistaUsuario')
 @section('contenido')
 
-    @foreach($datosportal as $dat)
+
+    <div class="row">
         <div class="mensaje">
-            <h2>Colegio: {{$dat->nombre}}</h2>
-            <h2></h2>
+
+            <h2>   Listado de Curriculum</h2>
         </div>
+
+    </div>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="table-responsive">
 
-                    <h3>mision:</h3>
-                    <h2>{{$dat->mision}} </h2>
-                    <h3>vision</h3>
-                    <h2>{{$dat->vision}}</h2>
-                    <h3>objetivo general</h3>
-                    <h2>{{$dat->objetivoGeneral}} </h2>
-                    <h3>descripcion</h3>
-                    <h2>{{$dat->descripcion}}</h2>
-                    <h3>logo</h3>
-                    <h2>{{$dat->logo}} </h2>
+                <table class="table table-striped table-bordered table-condensed table-hover">
+                    <thead>
+                    <th>codigo</th>
+                    <th>curriculum</th>
+                    </thead>
+                    @foreach($curriculum as $cur)
+                        <tr>
+
+                            <td>{{$cur->codigo}}</td>
+                            <td>
+                                < src="{{asset('pdf/curriculum/'.$cur->curriculum)}}" alt="{{$cur->curriculum}}"></>
+                            </td>
+
+                        </tr>
                     @endforeach
-                {{$datosportal->render()}}
-            <p>Vistas: {{$cantidad}}</p>
+                </table>
+            </div>
+            {{$curriculum->render()}}
         </div>
+        <p>Vistas: {{$cantidad}}</p>
+
+
     </div>
+
 
 @endsection
 

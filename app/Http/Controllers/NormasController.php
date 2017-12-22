@@ -17,7 +17,6 @@ use DB;
 use Fpdf;
 
 
-
 class NormasController extends Controller
 {
 
@@ -26,79 +25,83 @@ class NormasController extends Controller
     {
 
     }
-    public function index(Request $request )
-    { $template = 'portal.normas.index';
-        Contador::insertarRegistro($template);
-        $cantidad = Contador::getCantidadTemplate($template);
 
-        if($request)
-        {
-            $query=trim($request->get('searchText'));
-            $normas=DB::table('normas')->where('codigo','LIKE','%'.$query.'%')->paginate(5);
-            ;
+    public function index(Request $request)
+    {
 
-            return view('portal.normas.index')->with(["normas"=>$normas,"searchText"=>$query, "cantidad" => $cantidad]);
+        if ($request) {
+            $template = 'portal.normas.index';
+            Contador::insertarRegistro($template);
+            $cantidad = Contador::getCantidadTemplate($template);
+            $query = trim($request->get('searchText'));
+            $normas = DB::table('normas')->where('codigo', 'LIKE', '%' . $query . '%')->paginate(5);
+            return view('portal.normas.index')->with(["normas" => $normas, "searchText" => $query, "cantidad" => $cantidad]);
         }
     }
-    public function publica(Request $request )
-    { $template = 'portal.normas.publica';
-        Contador::insertarRegistro($template);
-        $cantidad = Contador::getCantidadTemplate($template);
 
-        if($request)
-        {
-            $query=trim($request->get('searchText'));
-            $normas=DB::table('normas')->paginate(5);
-            ;
+    public function publica(Request $request)
+    {
+        if ($request) {
+            $template = 'portal.normas.publica';
+            Contador::insertarRegistro($template);
+            $cantidad = Contador::getCantidadTemplate($template);
+;
+            $normas = DB::table('normas')->paginate(5);;
 
-            return view('portal.normas.publica')->with(["normas"=>$normas, "cantidad" => $cantidad]);
+            return view('portal.normas.publica')->with(["normas" => $normas, "cantidad" => $cantidad]);
         }
     }
+
     public function create()
-    { $template = 'portal.normas.create';
+    {
+        $template = 'portal.normas.create';
         Contador::insertarRegistro($template);
         $cantidad = Contador::getCantidadTemplate($template);
 
-        return view('portal.normas.create')->with([ "cantidad" => $cantidad]);
+        return view('portal.normas.create')->with(["cantidad" => $cantidad]);
 
     }
+
     public function store(NormaFormRequest $request)
     {
-        $normas= new normas;
-        $normas->codigo=$request->get('codigo');
-        $normas->descripcion=$request->get('descripcion');
+        $normas = new normas;
+        $normas->codigo = $request->get('codigo');
+        $normas->descripcion = $request->get('descripcion');
         $normas->save();
         return Redirect::to('portal/normas');
 
     }
 
     public function show($id)
-    {
-        return view("portal.normas.show",["normas"=>normas::findOrFail($id)]);
+    { $template = 'portal.normas.show';
+        Contador::insertarRegistro($template);
+        $cantidad = Contador::getCantidadTemplate($template);
+        return view("portal.normas.show", ["normas" => normas::findOrFail($id),"cantidad" => $cantidad]);
     }
+
     public function edit($id)
     {
         $template = 'portal.normas.edit';
         Contador::insertarRegistro($template);
         $cantidad = Contador::getCantidadTemplate($template);
 
-        return view("portal.normas.edit",["normas"=>normas::findOrFail($id), "cantidad" => $cantidad]);
+        return view("portal.normas.edit", ["normas" => normas::findOrFail($id), "cantidad" => $cantidad]);
 
     }
 
-    public function update(NormaFormRequest $request,$id)
+    public function update(NormaFormRequest $request, $id)
     {
         $normas = normas::findOrFail($id);
         $normas->codigo = $request->get('codigo');
-        $normas->descripcion= $request->get('descripcion');
+        $normas->descripcion = $request->get('descripcion');
         $normas->update();
         return Redirect::to('portal/normas');
 
     }
+
     public function destroy($id)
     {
-        $normas=normas::findOrFail($id);
-
+        $normas = normas::findOrFail($id);
         $normas->delete();
         return Redirect::to('portal/normas');
 
@@ -107,32 +110,31 @@ class NormasController extends Controller
 
     public function reporte()
     {
-        $personas=DB::table('normas')->get();
-        $pdf= new Fpdf();
+        $personas = DB::table('normas')->get();
+        $pdf = new Fpdf();
         $pdf::AddPage();
-        $pdf::SetTextColor(35,56,113);
-        $pdf::SetFont('Arial','B',16);
-        $pdf::Cell(0,10,utf8_decode('Listado de Normas'),0,"","C");
+        $pdf::SetTextColor(35, 56, 113);
+        $pdf::SetFont('Arial', 'B', 16);
+        $pdf::Cell(0, 10, utf8_decode('Listado de Normas'), 0, "", "C");
         $pdf::Ln();
         $pdf::Ln();
-        $pdf::SetTextColor(0,0,0);//color del texto
+        $pdf::SetTextColor(0, 0, 0);//color del texto
         $pdf::SetFillColor(255, 228, 196);//color del Fondo de la celda
 
-        $pdf::SetFont('Arial','B',12);
+        $pdf::SetFont('Arial', 'B', 12);
 
         //ancho de las columnas todos esos numeros sumados debe dar un  promedio de 190
-        $pdf::cell(30,8,utf8_decode('Código'),1,"","L",true);
-        $pdf::cell(160,8,utf8_decode('Descripción'),1,"","L",true);
-        foreach ($personas as $per)
-        {
+        $pdf::cell(30, 8, utf8_decode('Código'), 1, "", "L", true);
+        $pdf::cell(160, 8, utf8_decode('Descripción'), 1, "", "L", true);
+        foreach ($personas as $per) {
             $pdf::Ln();
-            $pdf::SetTextColor(0,0,0);// color del texto
-            $pdf::SetFillColor(255,255,255);// color de la celda
+            $pdf::SetTextColor(0, 0, 0);// color del texto
+            $pdf::SetFillColor(255, 255, 255);// color de la celda
 
-            $pdf::SetFont("Arial","",10);
+            $pdf::SetFont("Arial", "", 10);
 
-            $pdf::cell(30,8,utf8_decode($per->codigo),1,"","L",true);
-            $pdf::cell(160,8,utf8_decode($per->descripcion),1,"","L",true);
+            $pdf::cell(30, 8, utf8_decode($per->codigo), 1, "", "L", true);
+            $pdf::cell(160, 8, utf8_decode($per->descripcion), 1, "", "L", true);
 
         }
         $pdf::Output();
@@ -140,10 +142,6 @@ class NormasController extends Controller
 
 
     }
-
-
-
-
 
 
 }

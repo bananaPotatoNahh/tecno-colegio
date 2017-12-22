@@ -20,13 +20,13 @@ class ReglamentosController extends Controller
 
     }
     public function index(Request $request )
-    {$template = 'portal.reglamento.index';
-        Contador::insertarRegistro($template);
-        $cantidad = Contador::getCantidadTemplate($template);
+    {
 
 
         if($request)
-        {
+        {$template = 'portal.reglamento.index';
+            Contador::insertarRegistro($template);
+            $cantidad = Contador::getCantidadTemplate($template);
             $query=trim($request->get('searchText'));
             $reglamentos=DB::table('reglamentos')->where('codigo','LIKE','%'.$query.'%')->paginate(5);
             ;
@@ -35,11 +35,12 @@ class ReglamentosController extends Controller
         }
     }
     public function publica(Request $request )
-    {$template = 'portal.reglamento.publica';
-        Contador::insertarRegistro($template);
-        $cantidad = Contador::getCantidadTemplate($template);
+    {
         if($request)
-        {$reglamentos=DB::table('reglamentos')->paginate(5);
+        {$template = 'portal.reglamento.publica';
+            Contador::insertarRegistro($template);
+            $cantidad = Contador::getCantidadTemplate($template);
+            $reglamentos=DB::table('reglamentos')->paginate(5);
          return view('portal.reglamento.publica')->with(["reglamentos"=>$reglamentos, "cantidad" => $cantidad]);
         }
     }
@@ -63,8 +64,10 @@ class ReglamentosController extends Controller
     }
 
     public function show($id)
-    {
-        return view("portal.reglamento.show",["reglamentos"=>reglamentos::findOrFail($id)]);
+    {$template = 'portal.reglamento.show';
+        Contador::insertarRegistro($template);
+        $cantidad = Contador::getCantidadTemplate($template);
+        return view("portal.reglamento.show",["reglamentos"=>reglamentos::findOrFail($id),"cantidad" => $cantidad]);
     }
     public function edit($id)
     {
@@ -88,7 +91,6 @@ class ReglamentosController extends Controller
     public function destroy($id)
     {
         $reglamentos=reglamentos::findOrFail($id);
-
         $reglamentos->delete();
         return Redirect::to('portal/reglamento');
 

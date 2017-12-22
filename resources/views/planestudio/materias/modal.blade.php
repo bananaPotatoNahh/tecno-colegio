@@ -1,5 +1,5 @@
-<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$cur->idcurriculum}}">
-{{ Form::Open(array('action'=>array('CurriculumController@destroy',$cur->idcurriculum),'method'=>'delete')) }}
+<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$cur->idmateria}}">
+{{ Form::Open(array('action'=>array('CurriculumController@destroy',$cur->idmateria),'method'=>'delete')) }}
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -3,12 +3,12 @@
     <div class="row">
         <div class="mensaje">
 
-            <h2>   Listado de Curriculum</h2>
+            <h2>   Listado de Materias</h2>
         </div>
         <div class=" col-md-8 col-sm-8 col-xs-12">
 
-            <h3> <a href="curriculum/create"><button  class="btn btn-bitbucket">Nuevo</button></a> </h3>
-            @include('persona.curriculum.search')
+            <h3> <a href="materias/create"><button  class="btn btn-bitbucket">Nuevo</button></a> </h3>
+            @include('planestudio.materias.search')
 
         </div>
     </div>
@@ -19,31 +19,34 @@
                 <table class="table table-striped table-bordered table-condensed table-hover">
                     <thead>
                     <th>id</th>
-                    <th>codigo</th>
-                    <th>curriculum</th>
+                    <th>nombre</th>
+                    <th>sigla</th>
+                    <th>contenido</th>
                     <th>opciones</th>
                     </thead>
-                    @foreach($curriculum as $cur)
+                    @foreach($materias as $cur)
                         <tr>
                            
-                            <td>{{$cur->idcurriculum}} </td>
-                            <td>{{$cur->codigo}}</td>
+                            <td>{{$cur->idmateria}} </td>
+                            <th>{{$cur->nombre}}</th>
+                            <td>{{$cur->sigla}}</td>
+                            <td>{{$cur->contenido}}</td>
                             <td>
-                               < src="{{asset('pdf/curriculum/'.$cur->curriculum)}}" alt="{{$cur->curriculum}}"></>
+                               < src="{{asset('pdf/curriculum/'.$cur->contenido)}}" alt="{{$cur->contenido}}"></>
                             </td>
                             <td>
-                                <a href="{{URL::action('CurriculumController@edit',$cur->idcurriculum)}}">   <button class="btn btn-info">Editar</button>
+                                <a href="{{URL::action('MateriasController@edit',$cur->idmateria)}}">   <button class="btn btn-info">Editar</button>
                                 </a>
-                              <a href="" data-target="#modal-delete-{{$cur->idcurriculum}}" data-toggle="modal"> <button class="btn btn-danger">Eliminar</button>
+                              <a href="" data-target="#modal-delete-{{$cur->idmateria}}" data-toggle="modal"> <button class="btn btn-danger">Eliminar</button>
                               </a>
                                 </td>
 
                         </tr>
-                        @include('persona.curriculum.modal')
+                        @include('planestudio.materias.modal')
                     @endforeach
                 </table>
             </div>
-            {{$curriculum->render()}}
+            {{$materias->render()}}
         </div>
         <p>Vistas: {{$cantidad}}</p>
 

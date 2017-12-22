@@ -80,54 +80,78 @@ class TempleteController extends Controller
 
     public function vistaspub()
     {
-        $template = 'portal.reglamento.edit';
-        $cantidad = Contador::getCantidadTemplate($template);
-
-
-        $alumnoNumero=DB::table('persona')->where('tipo','=','1')->count();
-
-        $docente=DB::table('persona')->where('tipo','=','2')->count();
-
-        $administrativo=DB::table('persona')->where('tipo','=','3')->count();
-        ;
-
-        return view('graficos.pychart', compact('alumnoNumero', 'docente','administrativo','cantidad'));
-    }
-    public function vistaspublicasEstadisticas()
-    {
-        $template = 'persona.administrativo.publica';
+        $template = 'persona.administrativo.index';
         $administrativo = Contador::getCantidadTemplate($template);
 
-        $template1 = 'persona.curriculum.publica';
+        $template1 = 'persona.curriculum.index';
         $curriculum = Contador::getCantidadTemplate($template1);
 
-        $template2 = 'portal.datosportal.publica';
+        $template2 = 'portal.datosportal.index';
         $datosportal = Contador::getCantidadTemplate($template2);
 
-        $template3 = 'persona.docente.publica';
+        $template3 = 'persona.docente.index';
         $docente = Contador::getCantidadTemplate($template3);
 
-        $template4
-
-            = 'portal.logros.publica';
+        $template4 = 'portal.logros.index';
         $logros = Contador::getCantidadTemplate($template4);
 
-        $template5 = 'planestudio.materia.publica';
+        $template5 = 'planestudio.materias.index';
         $materia = Contador::getCantidadTemplate($template5);
 
-        $template = 6='portal.normas.publica';
+        $template = 'portal.normas.index';
         $normas = Contador::getCantidadTemplate($template);
 
-        $template = 'portal.noticias.publica';
+        $template = 'portal.noticias.index';
         $noticias= Contador::getCantidadTemplate($template);
 
-        $template = 'planestudio.planestudio.publica';
+        $template = 'planestudio.planestudio.index';
         $planestudio = Contador::getCantidadTemplate($template);
 
-        $template = 'persona.persona.publica';
+        $template = 'persona.persona.index';
         $persona = Contador::getCantidadTemplate($template);
 
-        $template = 'portal.reglamento.publica';
+        $template = 'portal.reglamento.index';
+        $reglamento= Contador::getCantidadTemplate($template);
+
+
+        return view('graficos.vistaspublicas', compact('administrativo', 'curriculum','datosportal','docente','logros','materia','normas','noticias','persona','planestudio','reglamento'));
+
+
+
+    }
+    public function vistasEstadisticas()
+    {
+        $template = 'persona.administrativo.index';
+        $administrativo = Contador::getCantidadTemplate($template);
+
+        $template1 = 'persona.curriculum.index';
+        $curriculum = Contador::getCantidadTemplate($template1);
+
+        $template2 = 'portal.datosportal.index';
+        $datosportal = Contador::getCantidadTemplate($template2);
+
+        $template3 = 'persona.docente.index';
+        $docente = Contador::getCantidadTemplate($template3);
+
+        $template4 = 'portal.logros.index';
+        $logros = Contador::getCantidadTemplate($template4);
+
+        $template5 = 'planestudio.materia.index';
+        $materia = Contador::getCantidadTemplate($template5);
+
+        $template = 'portal.normas.index';
+        $normas = Contador::getCantidadTemplate($template);
+
+        $template = 'portal.noticias.index';
+        $noticias= Contador::getCantidadTemplate($template);
+
+        $template = 'planestudio.planestudio.index';
+        $planestudio = Contador::getCantidadTemplate($template);
+
+        $template = 'persona.persona.index';
+        $persona = Contador::getCantidadTemplate($template);
+
+        $template = 'portal.reglamento.index';
         $reglamento= Contador::getCantidadTemplate($template);
 
 
@@ -138,41 +162,21 @@ class TempleteController extends Controller
     public function personaEstadistica()
     {
 
-        $template = 'persona.administrativo.publica';
-        $administrativo = Contador::getCantidadTemplate($template);
-
-        $template = 'persona.curriculum.publica';
-        $curriculum = 0 ;//Contador::getCantidadTemplate($template);
-
-        $template = 'portal.datosportal.publica';
-        $datosportal = Contador::getCantidadTemplate($template);
-
-        $template = 'persona.docente.publica';
-        $docente = Contador::getCantidadTemplate($template);
-
-        $template = 'portal.logros.publica';
-        $logros = Contador::getCantidadTemplate($template);
-
-        $template = 'planestudio.materia.publica';
-        $materia = Contador::getCantidadTemplate($template);
-
-        $template = 'portal.normas.publica';
-        $normas = Contador::getCantidadTemplate($template);
-
-        $template = 'portal.noticias.publica';
-        $noticias= Contador::getCantidadTemplate($template);
-
-        $template = 'planestudio.planestudio.publica';
-        $planestudio = Contador::getCantidadTemplate($template);
-
-        $template = 'persona.persona.publica';
+        $template = 'persona.persona.index';
         $persona = Contador::getCantidadTemplate($template);
 
-        $template = 'portal.reglamento.publica';
-        $reglamento= Contador::getCantidadTemplate($template);
 
+        //$persona=DB::table('persona')->where('tipo','=','1')->count();
 
-        return view('graficos.pychart', compact('administrativo', 'curriculum','datosportal','docente','logros','materia','normas','noticias','persona','planestudio','reglamento'));
+        //$docente=DB::table('persona')->where('tipo','=','2')->count();
+
+        //$administrativo=DB::table('persona')->where('tipo','=','3')->count();
+        $template = 'persona.administrativo.index';
+        $administrativo = Contador::getCantidadTemplate($template);
+        $template3 = 'persona.docente.index';
+        $docente = Contador::getCantidadTemplate($template3);
+
+        return view('graficos.pychart', compact('persona', 'docente','administrativo','cantidad'));
     }
 
 
