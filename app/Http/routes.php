@@ -37,19 +37,6 @@ Route::get('reportes', function (){
 });
 
 
-// vistaspublicas
-Route::get('administrativopublica', 'AdministrativoController@publica');
-Route::get('curriculumpublica', 'CurriculumController@publica');
-Route::get('vistapublica', 'DatosPortalController@publica');
-Route::get('docentepublica', 'DocenteController@publica');
-Route::get('logrospublica', 'LogrosController@publica');
-Route::get('materiaspublica', 'MateriasController@publica');
-Route::get('normaspublica', 'NormasController@publica');
-Route::get('noticiaspublica', 'NoticiasController@publica');
-Route::get('personapublica', 'PersonaController@publica');
-Route::get('planestudiopublica', 'PlanEstudioController@publica');
-Route::get('reglamentospublica', 'ReglamentosController@publica');
-
 //rutas reportes
 Route::get('reportesadministrativos', 'AdministrativoController@reporte');
 Route::get('reportescargo','CargoController@reporte');
@@ -66,3 +53,16 @@ Route::get('reportesplanestudio','PlanEstudioController@reporte');
 Route::get('reportesmaterias','MateriasController@reporte');
 
 
+
+// vistaspublicas
+Route::get('administrativopublica', 'AdministrativoController@publica');
+Route::get('curriculumpublica', 'CurriculumController@publica');
+Route::get('vistapublica', 'DatosPortalController@publica');
+Route::get('docentepublica', 'DocenteController@publica');
+Route::get('logrospublica', 'LogrosController@publica');
+Route::get('materiaspublica', 'MateriasController@publica');
+Route::get('normaspublica', 'NormasController@publica');
+Route::get('noticiaspublica', 'NoticiasController@publica');
+Route::get('personapublica', 'PersonaController@publica');
+Route::get('planestudiopublica', 'PlanEstudioController@publica');
+Route::get('reglamentospublica', 'ReglamentosController@publica');
