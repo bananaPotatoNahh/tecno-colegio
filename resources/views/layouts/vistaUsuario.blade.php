@@ -18,21 +18,7 @@
 
 </head>
 <body>
-<header>
-    <div class="container">
-
-        <nav>
-            <ul>
-                <li><a href="{{url('vistapublica')}}">Inicio</a></li>
-                <li><a href="blog.html">Plantel Administrativo</a></li>
-                <li><a href="url">Pantel Docente</a></li>
-                <li><a href="url">Estudiantes</a></li>
-                <li><a href="url">Planes de Estudio</a></li>
-                <li><a href="url">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+@include('layouts.menu')
 <section class="main">
     <div class="container">
         <div class="mensaje">
@@ -42,21 +28,6 @@
         <div class="articulo">
             @yield('contenido')
         </div>
-
-        <aside>
-            <div class="widget">
-                <h3>Leer Para mas  informacion</h3>
-                <ul>
-                    <li><a href="{{url('reglamentospublica')}}">Reglamentos</a></li>
-                    <li><a href="{{url('normaspublica')}}">Normas</a></li>
-                    <li><a href="{{url('noticiaspublica')}}">Noticias</a></li>
-                    <li><a href="{{url('logrospublica')}}">Logros</a></li>
-                    <li><a href="{{url('curriculumpublica')}}">Curriculum</a></li>
-                    <li ><a href="{{url('reportes')}}">Reportes</a></li>
-                </ul>
-            </div>
-
-        </aside>
     </div>
 </section>
 <footer class="navbar-fixed-bottom">

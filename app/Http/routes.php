@@ -11,47 +11,49 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'DatosPortalController@index');
+
+Route::post('login', 'LoginController@login');
+
+Route::group(['middleware' => 'authLogin'], function () {
+    Route::get('logout', 'LoginController@logout');
+        Route::resource('persona/administrativo', 'AdministrativoController');
+        Route::resource('persona/cargo', 'CargoController');
+        Route::resource('persona/docente', 'DocenteController');
+        Route::resource('persona/curriculum', 'CurriculumController');
+        Route::resource('persona/persona', 'PersonaController');
+        Route::resource('portal/datosportal', 'DatosPortalController');
+        Route::resource('portal/normas', 'NormasController');
+        Route::resource('portal/reglamento', 'ReglamentosController');
+        Route::resource('portal/logros', 'LogrosController');
+        Route::resource('portal/objetivos', 'ObjetivosController');
+        Route::resource('portal/noticias', 'NoticiasController');
+        Route::resource('planestudio/planestudio', 'PlanEstudioController');
+        Route::resource('planestudio/materias', 'MateriasController');
+        Route::resource('buscador', 'TempleteController@show');
+        Route::get('download', 'CurriculumController@descargar');
+        Route::get('estadistica', 'TempleteController@personaEstadistica');
+        Route::get('estadisticasvis', 'TempleteController@vistaspub');
+        Route::get('estadisticasvistas', 'TempleteController@vistasEstadisticas');
+        Route::get('reportes', function () {
+            return view('graficos/reportes');
+        });
+
+        //rutas reportes
+        Route::get('reportesadministrativos', 'AdministrativoController@reporte');
+        Route::get('reportescargo', 'CargoController@reporte');
+        Route::get('reportesdocente', 'DocenteController@reporte');
+        Route::get('reportescurriculum', 'CurriculumController@reporte');
+        Route::get('reportespersona', 'PersonaController@reporte');
+        Route::get('reportesdatosportal', 'DatosPortalController@reporte');
+        Route::get('reportesnormas', 'NormasController@reporte');
+        Route::get('reportesreglamento', 'ReglamentosController@reporte');
+        Route::get('reporteslogros', 'LogrosController@reporte');
+        Route::get('reportesobjetivos', 'ObjetivosController@reporte');
+        Route::get('reportesnoticias', 'NoticiasController@reporte');
+        Route::get('reportesplanestudio', 'PlanEstudioController@reporte');
+        Route::get('reportesmaterias', 'MateriasController@reporte');
 });
-Route::resource('persona/administrativo','AdministrativoController');
-Route::resource('persona/cargo','CargoController');
-Route::resource('persona/docente','DocenteController');
-Route::resource('persona/curriculum','CurriculumController');
-Route::resource('persona/persona','PersonaController');
-Route::resource('portal/datosportal','DatosPortalController');
-Route::resource('portal/normas','NormasController');
-Route::resource('portal/reglamento','ReglamentosController');
-Route::resource('portal/logros','LogrosController');
-Route::resource('portal/objetivos','ObjetivosController');
-Route::resource('portal/noticias','NoticiasController');
-Route::resource('planestudio/planestudio','PlanEstudioController');
-Route::resource('planestudio/materias','MateriasController');
-Route::resource('buscador','TempleteController@show');
-Route::get('download', 'CurriculumController@descargar');
-Route::get('estadistica', 'TempleteController@personaEstadistica');
-Route::get('estadisticasvis', 'TempleteController@vistaspub');
-Route::get('estadisticasvistas', 'TempleteController@vistasEstadisticas');
-Route::get('reportes', function (){
-    return view('graficos/reportes');
-});
-
-
-//rutas reportes
-Route::get('reportesadministrativos', 'AdministrativoController@reporte');
-Route::get('reportescargo','CargoController@reporte');
-Route::get('reportesdocente','DocenteController@reporte');
-Route::get('reportescurriculum','CurriculumController@reporte');
-Route::get('reportespersona','PersonaController@reporte');
-Route::get('reportesdatosportal','DatosPortalController@reporte');
-Route::get('reportesnormas','NormasController@reporte');
-Route::get('reportesreglamento','ReglamentosController@reporte');
-Route::get('reporteslogros','LogrosController@reporte');
-Route::get('reportesobjetivos','ObjetivosController@reporte');
-Route::get('reportesnoticias','NoticiasController@reporte');
-Route::get('reportesplanestudio','PlanEstudioController@reporte');
-Route::get('reportesmaterias','MateriasController@reporte');
-
 
 
 // vistaspublicas
